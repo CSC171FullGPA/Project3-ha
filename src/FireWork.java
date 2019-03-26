@@ -78,25 +78,6 @@ public class FireWork extends JFrame implements ActionListener {
 		this.add(timeField);
 	
 	}
-	
-	
-	public void paintComponent(Graphics g) {
-		int width = getWidth();
-		int height = getHeight();
-		g.setColor(Color.BLACK);
-		GeneralPath polyline = 
-		        new GeneralPath(GeneralPath.WIND_EVEN_ODD, 500);
-
-		
-		for (int i=0;i<=100;i++) {
-			polyline.moveTo(newX, newY);
-			
-			newX = 200*Math.cos(8)*i; 
-			newY= 200*Math.sin(8)*i-(1/2)*9.8*i*i;
-			polyline.lineTo(newX, newY);
-		}
-		g.drawLine((int)newX, (int)newY,100,100);
-}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
