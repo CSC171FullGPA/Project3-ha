@@ -20,7 +20,7 @@ public class FireWork extends JComponent{
 		for (int i=0;i<=100;i++) {
 			polyline.moveTo(newX, newY);
 			
-			newX = 200*Math.cos(8)*i; //hahhahahahah
+			newX = 200*Math.cos(8)*i; //hahhahahahah /jhaahahahha
 			newY= 200*Math.sin(8)*i-(1/2)*9.8*i*i;
 			polyline.lineTo(newX, newY);
 		}
