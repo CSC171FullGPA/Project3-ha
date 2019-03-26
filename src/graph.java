@@ -14,11 +14,11 @@ public class graph extends JComponent{
 		
 		for (int i=0;i<=1000;i++) {
 			g.setColor(Color.RED);
-			g.drawLine((int)newX, (int)newY,(int)(0.3*Math.cos(60/(180.0)*Math.PI)*i),(int)(0.3*Math.sin(60/180.0*Math.PI)*i-(1/2)*9.8*i*i));
+			g.drawLine((int)newX, (int)newY,(int)(0.3*Math.cos(60/(180.0)*Math.PI)*i),(int)(0.3*Math.sin(60/(180.0)*Math.PI)*i-(1/2)*9.8*i*i));
 			newX = 0.3*Math.cos(60/180.0*Math.PI)*i;
 			newY = 0.3*Math.sin(60/180.0*Math.PI)*i-(1/2)*9.8*i*i;
 		}
 		g.drawLine((int)newX, (int)newY,400,400);
 		
-}
+	}
 }
