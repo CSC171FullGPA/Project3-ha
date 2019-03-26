@@ -12,11 +12,13 @@ public class graph extends JComponent{
 		int width = getWidth();
 		int height = getHeight();
 		
-		for (int i=0;i<=100;i++) {
-			g.drawLine((int)newX, (int)newY,(int)(30*Math.cos(5)*i),(int)(30*Math.sin(5)*i-(1/2)*9.8*i*i));
-			newX = 30*Math.cos(60)*i;
-			newY = 30*Math.sin(60)*i-(1/2)*9.8*i*i;
+		for (int i=0;i<=1000;i++) {
+			g.setColor(Color.RED);
+			g.drawLine((int)newX, (int)newY,(int)(0.3*Math.cos(60/(180.0)*Math.PI)*i),(int)(0.3*Math.sin(60/180.0*Math.PI)*i-(1/2)*9.8*i*i));
+			newX = 0.3*Math.cos(60/180.0*Math.PI)*i;
+			newY = 0.3*Math.sin(60/180.0*Math.PI)*i-(1/2)*9.8*i*i;
 		}
+		g.drawLine((int)newX, (int)newY,400,400);
 		
 }
 }

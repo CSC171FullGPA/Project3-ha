@@ -20,7 +20,7 @@ public class FireWork extends JComponent{
 		for (int i=0;i<=100;i++) {
 			polyline.moveTo(newX, newY);
 			
-			newX = 200*Math.cos(8)*i;
+			newX = 200*Math.cos(8)*i; //hahhahahahah
 			newY= 200*Math.sin(8)*i-(1/2)*9.8*i*i;
 			polyline.lineTo(newX, newY);
 		}
@@ -31,7 +31,7 @@ public class FireWork extends JComponent{
 		// TODO Auto-generated method stub
 		JFrame test1 = new JFrame("BasicLines");
 		test1.setSize(600, 600);
-		test1.add(new FireWork());
+		test1.add(new graph());
 		test1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test1.setVisible(true);
 
