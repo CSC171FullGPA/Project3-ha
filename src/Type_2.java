@@ -61,6 +61,7 @@ public class Type_2 extends JComponent implements MouseListener{
 		Graphics g = getGraphics();
 		int w = getWidth();
 		int h = getHeight();
+		for(int j = 0; j<=4;j++) {
 		for(int i=1;i<=25;i++) {
 			int r = rand.nextInt(30);
 			if(i==1||i==4||i==7||i==10||i==13||i==16||i==19) {
@@ -91,6 +92,7 @@ public class Type_2 extends JComponent implements MouseListener{
 				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)) , r, r);
 
 			}
+		}
 		}
 		
 	}

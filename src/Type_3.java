@@ -59,15 +59,42 @@ public class Type_3 extends JComponent implements MouseListener{
 		// TODO Auto-generated method stub
 		int w = getWidth();
 		int h = getHeight();
-		newX = speed*Math.cos(angle/180.0*Math.PI)*time;
-		newY = h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time);
+		int x;
+		int y;
 		System.out.println("yo");
 		Graphics g = getGraphics();
-		for (int j=1;j<=60;j++) {
-			for (int i=1;i<=7;i++) {
-				g.drawLine((int)newX, (int)newY,(int)(speed*Math.cos(j*3/(180.0)*Math.PI)*i+speed*Math.cos(angle/180.0*Math.PI)*time),h-(int)((speed*Math.sin(j*3/(180.0)*Math.PI)*i-(1/2.0)*9.8*i*i)+h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)));
-				newX = speed*Math.cos(j*3/180.0*Math.PI)*i+speed*Math.cos(angle/180.0*Math.PI)*time;
-				newY = h-(speed*Math.sin(j*3/180.0*Math.PI)*i-(1/2.0)*9.8*i*i)+h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time);
+		for(int j = 0; j<=4; j++) {
+		for(int i=1;i<=25;i++) {
+			int r = rand.nextInt(50)-25;
+			if(i==1||i==4||i==7||i==10||i==13||i==16||i==19) {
+				g.setColor(Color.GREEN);
+				g.drawString("*", (int)newX+rand.nextInt(100)-50, (int)newY+rand.nextInt(100)-50);
+			}
+			else if(i==2||i==5||i==8||i==11||i==14||i==17||i==20) {
+				g.setColor(Color.BLUE);
+				g.drawString("*", (int)newX+rand.nextInt(50)-25, (int)newY+rand.nextInt(50)-25);
+			}
+			else {
+				g.setColor(Color.MAGENTA);
+				g.drawString("*", (int)newX+rand.nextInt(150)-75, (int)newY+rand.nextInt(150)-75);
+
+			}
+		}
+		for(int i=1;i<=25;i++) {
+			int r = rand.nextInt(50)-25;
+			if(i==1||i==4||i==7||i==10||i==13||i==16||i==19) {
+				g.setColor(Color.RED);
+				g.drawString("*", (int)newX+rand.nextInt(200)-100, (int)newY+rand.nextInt(200)-100);
+			}
+			else if(i==2||i==5||i==8||i==11||i==14||i==17||i==20) {
+				g.setColor(Color.YELLOW);
+				g.drawString("*", (int)newX+rand.nextInt(50)-25, (int)newY+rand.nextInt(50)-25);
+			}
+			else {
+				g.setColor(Color.ORANGE);
+				g.drawString("*", (int)newX+rand.nextInt(150)-75, (int)newY+rand.nextInt(150)-75);
+
+			}
 		}
 		}
 		
