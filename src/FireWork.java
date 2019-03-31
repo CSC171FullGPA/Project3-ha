@@ -25,6 +25,7 @@ public class FireWork extends JFrame implements ActionListener {
 	private JLabel angleLabel;
 	private JLabel speedLabel;
 	private JLabel timeLabel;
+	private JLabel note;
 	
 	private JTextField angleField;
 	private JTextField speedField;
@@ -57,25 +58,31 @@ public class FireWork extends JFrame implements ActionListener {
 		
 		angleLabel = new JLabel("Angle: ");
 		speedLabel = new JLabel("Speed: ");
-		timeLabel = new JLabel("Time; ");
+		timeLabel = new JLabel("Time: ");
+		note = new JLabel("Click the screen to see the exploding.");
+		
 		
 		angleField = new JTextField(10);
 		angleField.setEditable(true);
 		angleField.setText("0");
 		angleField.addActionListener(this);
+		this.add(angleLabel);
 		this.add(angleField);
 		
 		speedField = new JTextField(10);
 		speedField.setEditable(true);
 		speedField.setText("0");
 		speedField.addActionListener(this);
+		this.add(speedLabel);
 		this.add(speedField);
 		
 		timeField = new JTextField(10);
 		timeField.setEditable(true);
 		timeField.setText("0");
 		timeField.addActionListener(this);
+		this.add(timeLabel);
 		this.add(timeField);
+		this.add(note);
 	
 	}
 
