@@ -98,7 +98,7 @@ public class FireWork extends JFrame implements ActionListener {
 		if (e.getSource() == button1) {
 			angle = angleField.getText();
 			speed = speedField.getText();
-			time = speedField.getText();
+			time = timeField.getText();
 			Type_1 x = new Type_1(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time));
 			x.draw();
 			
@@ -106,22 +106,22 @@ public class FireWork extends JFrame implements ActionListener {
 		else if (e.getSource() == button2) {
 			angle = angleField.getText();
 			speed = speedField.getText();
-			time = speedField.getText();
+			time = timeField.getText();
 		}
 		else if (e.getSource() == button3) {
 			angle = angleField.getText();
 			speed = speedField.getText();
-			time = speedField.getText();
+			time = timeField.getText();
 		}
 		else if (e.getSource() == button4) {
 			angle = angleField.getText();
 			speed = speedField.getText();
-			time = speedField.getText();
+			time = timeField.getText();
 		}
 		else if (e.getSource() == button5) {
 			angle = angleField.getText();
 			speed = speedField.getText();
-			time = speedField.getText();
+			time = timeField.getText();
 		}
 			
 		
