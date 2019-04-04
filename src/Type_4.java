@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
 public class Type_4 extends Type_2 {
+	//square explosion
 
 	public Type_4(int angle, int speed, int time, String color) {
 		super(angle, speed, time, color);
