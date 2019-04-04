@@ -1,20 +1,18 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.GeneralPath;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
-import javax.swing.JComponent;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JSlider;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class FireWork extends JFrame implements ActionListener {
-	private double newX = 0;
-	private double newY = 0;
+public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	
 	private JButton button1;
 	private JButton button2;
@@ -28,7 +26,7 @@ public class FireWork extends JFrame implements ActionListener {
 	private JLabel colorLabel;
 	private JLabel note;
 	
-	private JTextField angleField;
+	private JSlider angleSlider;
 	private JTextField speedField;
 	private JTextField timeField;
 	private JTextField colorField;
@@ -64,13 +62,11 @@ public class FireWork extends JFrame implements ActionListener {
 		colorLabel = new JLabel("Color(blue, green, red): ");
 		note = new JLabel("Click the screen to see the exploding.");
 		
+		add(angleLabel);
+		angleSlider = new JSlider(1, 80, 45);
+		angleSlider.addChangeListener(this);
+		add(angleSlider);
 		
-		angleField = new JTextField(10);
-		angleField.setEditable(true);
-		angleField.setText("0");
-		angleField.addActionListener(this);
-		this.add(angleLabel);
-		this.add(angleField);
 		
 		speedField = new JTextField(5);
 		speedField.setEditable(true);
@@ -110,54 +106,64 @@ public class FireWork extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String angle;
+		int angle;
 		String speed;
 		String time;
 		String color;
 		
 		if (e.getSource() == button1) {
-			angle = angleField.getText();
+			angle = angleSlider.getValue();
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
-			Type_1 x = new Type_1(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_1 x = new Type_1(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
 			x.draw();
 			
 		}
 		else if (e.getSource() == button2) {
-			angle = angleField.getText();
+			angle = angleSlider.getValue();
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
-			Type_2 x = new Type_2(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_2 x = new Type_2(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
 			x.draw();
 		}
 		else if (e.getSource() == button3) {
-			angle = angleField.getText();
+			angle = angleSlider.getValue();
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
-			Type_3 x = new Type_3(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_3 x = new Type_3(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
 			x.draw();
 		}
 		else if (e.getSource() == button4) {
-			angle = angleField.getText();
+			angle = angleSlider.getValue();
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
-			Type_4 x = new Type_4(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_4 x = new Type_4(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
 			x.draw();
 		}
 		else if (e.getSource() == button5) {
-			angle = angleField.getText();
+			angle = angleSlider.getValue();
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
-			Type_5 x = new Type_5(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_5 x = new Type_5(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
 			x.draw();
 		}
 			
 		
+		
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		Object source = e.getSource();
+		if (source == angleSlider) {
+			angleLabel.setText("Angle: " + String.valueOf(angleSlider.getValue()));
+			
+		} 
 		
 	}
 
