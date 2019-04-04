@@ -27,14 +27,15 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	private JLabel note;
 	
 	private JSlider angleSlider;
-	private JTextField speedField;
-	private JTextField timeField;
+	private JSlider speedSlider;
+	private JSlider timeSlider;
 	private JTextField colorField;
 	
 	private Color color;
 	
 	public FireWork() {
 		setLayout(new FlowLayout());
+		//FIXME bad layout, use border layout
 		
 		button1 = new JButton("Type  1");
 		button1.addActionListener(this);
@@ -67,20 +68,15 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		angleSlider.addChangeListener(this);
 		add(angleSlider);
 		
+		add(speedLabel);
+		speedSlider = new JSlider(1, 100, 1);
+		speedSlider.addChangeListener(this);
+		add(speedSlider);
 		
-		speedField = new JTextField(5);
-		speedField.setEditable(true);
-		speedField.setText("0");
-		speedField.addActionListener(this);
-		this.add(speedLabel);
-		this.add(speedField);
-		
-		timeField = new JTextField(5);
-		timeField.setEditable(true);
-		timeField.setText("0");
-		timeField.addActionListener(this);
-		this.add(timeLabel);
-		this.add(timeField);
+		add(timeLabel);
+		timeSlider = new JSlider(1, 10, 1);
+		timeSlider.addChangeListener(this);
+		add(timeSlider);
 		
 		colorField = new JTextField(10);
 		colorField.setEditable(true);
@@ -107,54 +103,52 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		int angle;
-		String speed;
-		String time;
+		int speed;
+		int time;
 		String color;
 		
 		if (e.getSource() == button1) {
 			angle = angleSlider.getValue();
-			speed = speedField.getText();
-			time = timeField.getText();
+			speed = speedSlider.getValue();
+			time = timeSlider.getValue();
 			color = colorField.getText();
-			Type_1 x = new Type_1(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_1 x = new Type_1(angle, speed, time, color);
 			x.draw();
 			
 		}
 		else if (e.getSource() == button2) {
 			angle = angleSlider.getValue();
-			speed = speedField.getText();
-			time = timeField.getText();
+			speed = speedSlider.getValue();
+			time = timeSlider.getValue();
 			color = colorField.getText();
-			Type_2 x = new Type_2(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_2 x = new Type_2(angle, speed, time, color);
 			x.draw();
 		}
 		else if (e.getSource() == button3) {
 			angle = angleSlider.getValue();
-			speed = speedField.getText();
-			time = timeField.getText();
+			speed = speedSlider.getValue();
+			time = timeSlider.getValue();
 			color = colorField.getText();
-			Type_3 x = new Type_3(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_3 x = new Type_3(angle, speed, time, color);
 			x.draw();
 		}
 		else if (e.getSource() == button4) {
 			angle = angleSlider.getValue();
-			speed = speedField.getText();
-			time = timeField.getText();
+			speed = speedSlider.getValue();
+			time = timeSlider.getValue();
 			color = colorField.getText();
-			Type_4 x = new Type_4(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_4 x = new Type_4(angle, speed, time, color);
 			x.draw();
 		}
 		else if (e.getSource() == button5) {
 			angle = angleSlider.getValue();
-			speed = speedField.getText();
-			time = timeField.getText();
+			speed = speedSlider.getValue();
+			time = timeSlider.getValue();
 			color = colorField.getText();
-			Type_5 x = new Type_5(angle, Integer.parseInt(speed), Integer.parseInt(time), color);
+			Type_5 x = new Type_5(angle, speed, time, color);
 			x.draw();
 		}
 			
-		
-		
 	}
 
 	@Override
@@ -163,7 +157,13 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		if (source == angleSlider) {
 			angleLabel.setText("Angle: " + String.valueOf(angleSlider.getValue()));
 			
-		} 
+		} else if (source == speedSlider) {
+			speedLabel.setText("Speed: " + String.valueOf(speedSlider.getValue()));
+			
+		} else if (source == timeSlider) {
+			timeLabel.setText("Time: " + String.valueOf(timeSlider.getValue()));
+			
+		}
 		
 	}
 
