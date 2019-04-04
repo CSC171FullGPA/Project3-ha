@@ -9,12 +9,12 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 public class Type_2 extends JComponent implements MouseListener{
-	private int angle;
-	private int speed;
-	private int time;
-	private String color;
-	private double newX;
-	private double newY;
+	protected int angle;
+	protected int speed;
+	protected int time;
+	protected String color;
+	protected double newX;
+	protected double newY;
 	Random rand = new Random();
 	
 	public Type_2(int angle, int speed, int time, String color) {
