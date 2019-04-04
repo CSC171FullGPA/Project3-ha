@@ -16,6 +16,7 @@ public class Type_1 extends JComponent implements MouseListener{
 	private double newY;
 	
 	public Type_1(int angle, int speed, int time, String color) {
+		//uni-centered circle explosion
 		this.angle = angle;
 		this.speed = speed;
 		this.time = time;

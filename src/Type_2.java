@@ -18,6 +18,7 @@ public class Type_2 extends JComponent implements MouseListener{
 	Random rand = new Random();
 	
 	public Type_2(int angle, int speed, int time, String color) {
+		//random circles explosion
 		this.angle = angle;
 		this.speed = speed;
 		this.time = time;

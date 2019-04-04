@@ -10,6 +10,7 @@ public class Type_4 extends Type_2 {
 		super(angle, speed, time, color);
 		
 	}
+	
 	@Override
 	
 	public void paintComponent(Graphics g) {
@@ -35,7 +36,7 @@ public class Type_4 extends Type_2 {
 	public void draw() {
 		JFrame x = new JFrame();
 		x.setSize(400, 400);
-		x.add(new Type_2(angle, speed, time, color));
+		x.add(new Type_4(angle, speed, time, color));
 		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		x.setVisible(true);
 		
@@ -48,38 +49,30 @@ public class Type_4 extends Type_2 {
 		Graphics g = getGraphics();
 		int w = getWidth();
 		int h = getHeight();
-		for(int j = 0; j<=4;j++) {
-		for(int i=1;i<=25;i++) {
-			int r = rand.nextInt(30);
-			if(i==1||i==4||i==7||i==10||i==13||i==16||i==19) {
-				g.setColor(Color.YELLOW);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)), r, r);
-			}
-			else if(i==2||i==5||i==8||i==11||i==14||i==17||i==20) {
-				g.setColor(Color.PINK);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)) , r, r);
-			}
-			else {
-				g.setColor(Color.ORANGE);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)) , r, r);
-			}
-		}
-		for(int i=1;i<=25;i++) {
-			int r = rand.nextInt(30);
-			if(i==1||i==4||i==7||i==10||i==13||i==16||i==19) {
-				g.setColor(Color.GREEN);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)), r, r);
-			}
-			else if(i==2||i==5||i==8||i==11||i==14||i==17||i==20) {
-				g.setColor(Color.BLUE);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)) , r, r);
-			}
-			else {
-				g.setColor(Color.MAGENTA);
-				g.drawOval((int)(speed*Math.cos(angle/180.0*Math.PI)*time)+(rand.nextInt(100)-50), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)+(rand.nextInt(100)-50)) , r, r);
-
-			}
-		}
+		
+		for(int i=1;i<=10;i++) {
+			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
+					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
+					Color.RED, Color.CYAN};
+			g.setColor(colors[i]);
+			
+			//Creates a random side for the square
+			int length = rand.nextInt(100)+5;
+			
+			//Creates squares at random distances from the end point
+			g.drawRect((int)newX + rand.nextInt(30)+5 - length/2, (int)newY + rand.nextInt(30)+5 -
+					length/2, length, length);
+			g.drawRect((int)newX + rand.nextInt(30)+5 - length/2, (int)newY - rand.nextInt(30)+5 -
+					length/2, length, length);
+			
+			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2, (int)newY + rand.nextInt(30)+5 -
+					length/2, length, length);
+			
+			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2,(int)newY - rand.nextInt(30)+5 -
+					length/2, length, length);
+			
+			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2, (int)newY - rand.nextInt(30)+5 -
+					length/2, length, length);
 		}
 		
 	}
