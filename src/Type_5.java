@@ -49,29 +49,19 @@ public class Type_5 extends Type_4{
 		int w = getWidth();
 		int h = getHeight();
 		
-		for(int i=1;i<=10;i++) {
+		for (int i = 0; i <= 10; i ++) {
+			
 			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
 					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
 					Color.RED, Color.CYAN};
 			g.setColor(colors[i]);
 			
-			//Creates a random side for the square
-			int length = rand.nextInt(100)+5;
+			//Draws lines originating at the end point
+			g.drawLine((int)newX, (int)newY, w/10 + i*5, h/10 + i*5);
+			g.drawLine((int)newX, (int)newY, (int)newX - w/10 + i*5, (int)newY + h/10 + i*5);
+			g.drawLine((int)newX, (int)newY, (int)newX + w/10 + i*5, (int)newY- h/10 + i*5);
+			g.drawLine((int)newX, (int)newY, -w/10 + i*10, -h/10 + i*10);
 			
-			//Creates squares at random distances from the end point
-			g.drawRect((int)newX + rand.nextInt(30)+5 - length/2, (int)newY + rand.nextInt(30)+5 -
-					length/2, length, length);
-			g.drawRect((int)newX + rand.nextInt(30)+5 - length/2, (int)newY - rand.nextInt(30)+5 -
-					length/2, length, length);
-			
-			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2, (int)newY + rand.nextInt(30)+5 -
-					length/2, length, length);
-			
-			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2,(int)newY - rand.nextInt(30)+5 -
-					length/2, length, length);
-			
-			g.drawRect((int)newX - rand.nextInt(30)+5 - length/2, (int)newY - rand.nextInt(30)+5 -
-					length/2, length, length);
 		}
 		
 	}

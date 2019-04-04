@@ -153,6 +153,8 @@ public class FireWork extends JFrame implements ActionListener {
 			speed = speedField.getText();
 			time = timeField.getText();
 			color = colorField.getText();
+			Type_5 x = new Type_5(Integer.parseInt(angle), Integer.parseInt(speed), Integer.parseInt(time), color);
+			x.draw();
 		}
 			
 		
