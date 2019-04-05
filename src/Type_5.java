@@ -1,11 +1,9 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JFrame;
 
 public class Type_5 extends Type_4{
-
 	public Type_5(int angle, int speed, int time, String color) {
 		super(angle, speed, time, color);
 		
@@ -44,25 +42,6 @@ public class Type_5 extends Type_4{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("yo");
-		Graphics g = getGraphics();
-		int w = getWidth();
-		int h = getHeight();
-		
-		for (int i = 0; i <= 10; i ++) {
-			
-			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
-					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
-					Color.RED, Color.CYAN};
-			g.setColor(colors[i]);
-			
-			//Draws lines originating at the end point
-			g.drawLine((int)newX, (int)newY, w/10 + i*5, h/10 + i*5);
-			g.drawLine((int)newX, (int)newY, (int)newX - w/10 + i*5, (int)newY + h/10 + i*5);
-			g.drawLine((int)newX, (int)newY, (int)newX + w/10 + i*5, (int)newY- h/10 + i*5);
-			g.drawLine((int)newX, (int)newY, -w/10 + i*10, -h/10 + i*10);
-			
-		}
 		
 	}
 
@@ -81,13 +60,86 @@ public class Type_5 extends Type_4{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		Graphics g = getGraphics();
+		int w = getWidth();
+		int h = getHeight();
+		g.setColor(Color.BLUE);
+		g.drawString("Release the mouse to explode!", w/3, 20);
+		g.setColor(Color.ORANGE);
+		g.drawLine((int)newX, (int)newY, (int)(newX + 80), (int)(newY + 80));
+		g.drawLine((int)newX, (int)newY, (int)(newX + 80), (int)(newY - 80));
+		g.drawLine((int)newX, (int)newY, (int)(newX - 80), (int)(newY - 80));
+		
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
+		Graphics g = getGraphics();
+		int w = getWidth();
+		int h = getHeight();
 		
+		for(int i=1;i<=10;i++) {
+			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
+					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
+					Color.RED, Color.CYAN};
+			g.setColor(colors[i]);
+	
+			//Creates a random side for the square
+			int length = rand.nextInt(100)+5;
+			
+			//Creates squares at random distances from the end point
+			g.drawRect((int)(newX + 40), (int)(newY + 40), length, length);
+			g.drawRect((int)(newX + 40), (int)(newY - 120), length, length);
+			g.drawRect((int)(newX - 120), (int)(newY - 120), length, length);
+
+		}
+		for(int i=1;i<=10;i++) {
+			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
+					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
+					Color.RED, Color.CYAN};
+			g.setColor(colors[i]);
+	
+			//Creates a random side for the square
+			int length = rand.nextInt(100)+5;
+			
+			//Creates squares at random distances from the end point
+			g.drawRect((int)(newX + 40), (int)(newY + 40), length, length);
+			g.drawRect((int)(newX + 40), (int)(newY - 120), length, length);
+			g.drawRect((int)(newX - 120), (int)(newY - 120), length, length);
+
+		}
+		for(int i=1;i<=10;i++) {
+			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
+					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
+					Color.RED, Color.CYAN};
+			g.setColor(colors[i]);
+	
+			//Creates a random side for the square
+			int length = rand.nextInt(100)+5;
+			
+			//Creates squares at random distances from the end point
+			g.drawRect((int)(newX + 40), (int)(newY + 40), length, length);
+			g.drawRect((int)(newX + 40), (int)(newY - 120), length, length);
+			g.drawRect((int)(newX - 120), (int)(newY - 120), length, length);
+
+		}
+		for(int i=1;i<=10;i++) {
+			Color[] colors = {Color.darkGray, Color.GREEN, Color.CYAN, Color.RED, 
+					Color.MAGENTA, Color.BLUE, Color.BLUE, Color.BLACK, Color.GREEN,
+					Color.RED, Color.CYAN};
+			g.setColor(colors[i]);
+	
+			//Creates a random side for the square
+			int length = rand.nextInt(100)+5;
+			
+			//Creates squares at random distances from the end point
+			g.drawRect((int)(newX + 40), (int)(newY + 40), length, length);
+			g.drawRect((int)(newX + 40), (int)(newY - 120), length, length);
+			g.drawRect((int)(newX - 120), (int)(newY - 120), length, length);
+
+		}
 	}
 
 }
