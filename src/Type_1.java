@@ -6,6 +6,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import java.util.Random;
+
 
 public class Type_1 extends JComponent implements MouseListener{
 	private int angle;
@@ -14,6 +16,8 @@ public class Type_1 extends JComponent implements MouseListener{
 	private String color;
 	private double newX;
 	private double newY;
+	boolean hit = false; // Extra credit 1
+	Random rand = new Random();
 	
 	public Type_1(int angle, int speed, int time, String color) {
 		//uni-centered circle explosion
@@ -41,7 +45,28 @@ public class Type_1 extends JComponent implements MouseListener{
 			newX = speed*Math.cos(angle/180.0*Math.PI)*i;
 			newY = h-(speed*Math.sin(angle/180.0*Math.PI)*i-(1/2.0)*9.8*i*i);
 		}
+		
+		newX = getWidth();
+		newY = getHeight();
+		for (int i=0;i<=time;i++) {
+			if(color.equals("red")) {
+				g.setColor(Color.RED);
+			}else if(color.equals("blue")) {
+				g.setColor(Color.BLUE);
+			}else if(color.equals("green")) {
+				g.setColor(Color.GREEN);
+			}
+			g.drawLine((int)newX, (int)newY,w-(int)(speed*Math.cos(angle/(180.0)*Math.PI)*i),h-((int)(speed*Math.sin(angle/(180.0)*Math.PI)*i-(1/2.0)*9.8*i*i)));
+			newX = w - speed*Math.cos(angle/180.0*Math.PI)*i;
+			newY = h-(speed*Math.sin(angle/180.0*Math.PI)*i-(1/2.0)*9.8*i*i);
+		}
+		
 		g.drawString("click the screen to see the explosion", w/4, 10);
+		
+		if(speed*Math.cos(angle/180.0*Math.PI)*time >= w - speed*Math.cos(angle/180.0*Math.PI)*time) {
+			g.drawString("The two projectiles hit each other! cheers!", w/4-5, 20);
+			hit = true;
+		}
 		
 	}
 	public void draw() {
@@ -60,6 +85,29 @@ public class Type_1 extends JComponent implements MouseListener{
 		Graphics g = getGraphics();
 		int w = getWidth();
 		int h = getHeight();
+		
+		if(hit == true) {
+			for(int i=0; i<=200;i++) {
+			g.setColor(Color.getHSBColor(rand.nextInt(200),rand.nextInt(200),rand.nextInt(200)));
+			g.drawString("hit", rand.nextInt(w),rand.nextInt(h));
+			}
+		}
+		
+		for(int i=1;i<=15;i++) {
+			if(i==1||i==4||i==7||i==10||i==13) {
+				g.setColor(Color.BLUE);
+				g.drawOval((int)(w - speed*Math.cos(angle/180.0*Math.PI)*time-5*i), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)-5*i), i*10, i*10);
+			}
+			else if(i==2||i==5||i==8||i==11||i==14) {
+				g.setColor(Color.GREEN);
+				g.drawOval((int)(w - speed*Math.cos(angle/180.0*Math.PI)*time-5*i), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)-5*i) , i*10, i*10);
+			}
+			else {
+				g.setColor(Color.RED);
+				g.drawOval((int)(w - speed*Math.cos(angle/180.0*Math.PI)*time-5*i), (int)(h-(speed*Math.sin(angle/180.0*Math.PI)*time-(1/2.0)*9.8*time*time)-5*i) , i*10, i*10);
+			}
+		}
+		
 		for(int i=1;i<=15;i++) {
 			if(i==1||i==4||i==7||i==10||i==13) {
 				g.setColor(Color.BLUE);
