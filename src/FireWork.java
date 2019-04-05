@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -24,12 +25,12 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	private JLabel speedLabel;
 	private JLabel timeLabel;
 	private JLabel colorLabel;
-	private JLabel note;
+
 	
 	private JSlider angleSlider;
 	private JSlider speedSlider;
 	private JSlider timeSlider;
-	private JTextField colorField;
+	private JComboBox colorBox;
 	
 	private Color color;
 	
@@ -55,7 +56,7 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		angleLabel = new JLabel("Angle: ");
 		speedLabel = new JLabel("Speed: ");
 		timeLabel = new JLabel("Time: ");
-		colorLabel = new JLabel("Color(blue, green, red): ");
+		colorLabel = new JLabel("Color: ");
 		
 		add(angleLabel);
 		angleSlider = new JSlider(1, 80, 45);
@@ -72,12 +73,14 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		timeSlider.addChangeListener(this);
 		add(timeSlider);
 		
-		colorField = new JTextField(7);
-		colorField.setEditable(true);
-		colorField.setText("");
-		colorField.addActionListener(this);
-		this.add(colorLabel);
-		this.add(colorField);
+		
+		colorLabel = new JLabel("Color:");
+		add(colorLabel);
+		//Color drop down menu
+		String[] colors = {"blue","red", "green"};
+		colorBox = new JComboBox(colors);
+		colorBox.addActionListener(this);
+		add(colorBox);
 		
 		this.add(button1);
 		this.add(button2);
@@ -100,17 +103,33 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		int angle;
 		int speed;
 		int time;
 		String color;
 		
+		if(e.getSource() ==colorBox) {
+			String colorStr = (String)colorBox.getSelectedItem();
+			
+			switch(colorStr) {
+			case "blue":
+				color = "blue";
+				break;
+			case "green":
+				color = "green";
+				break;
+			case "red":
+				color = "red";
+				break;
+			}
+		}
+		
 		if (e.getSource() == button1) {
 			angle = angleSlider.getValue();
 			speed = speedSlider.getValue();
 			time = timeSlider.getValue();
-			color = colorField.getText();
+			color = (String) colorBox.getSelectedItem();
 			Type_1 x = new Type_1(angle, speed, time, color);
 			x.draw();
 			
@@ -119,7 +138,7 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 			angle = angleSlider.getValue();
 			speed = speedSlider.getValue();
 			time = timeSlider.getValue();
-			color = colorField.getText();
+			color = (String) colorBox.getSelectedItem();
 			Type_2 x = new Type_2(angle, speed, time, color);
 			x.draw();
 		}
@@ -127,7 +146,7 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 			angle = angleSlider.getValue();
 			speed = speedSlider.getValue();
 			time = timeSlider.getValue();
-			color = colorField.getText();
+			color = (String) colorBox.getSelectedItem();
 			Type_3 x = new Type_3(angle, speed, time, color);
 			x.draw();
 		}
@@ -135,7 +154,7 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 			angle = angleSlider.getValue();
 			speed = speedSlider.getValue();
 			time = timeSlider.getValue();
-			color = colorField.getText();
+			color = (String) colorBox.getSelectedItem();
 			Type_4 x = new Type_4(angle, speed, time, color);
 			x.draw();
 		}
@@ -143,10 +162,11 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 			angle = angleSlider.getValue();
 			speed = speedSlider.getValue();
 			time = timeSlider.getValue();
-			color = colorField.getText();
+			color = (String) colorBox.getSelectedItem();
 			Type_5 x = new Type_5(angle, speed, time, color);
 			x.draw();
 		}
+		
 			
 	}
 
