@@ -9,8 +9,6 @@ public class graph extends JComponent{
 	double newX = 0;
 	double newY = 0;
 	public void paintComponent(Graphics g) {
-		int width = getWidth();
-		int height = getHeight();
 		
 		for (int i=0;i<=1000;i++) {
 			g.setColor(Color.RED);

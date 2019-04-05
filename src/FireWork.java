@@ -91,19 +91,16 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		FireWork x = new FireWork();
 		x.setTitle("firework");
-		x.setSize(830, 150);
+		x.setSize(750, 150);
 		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		x.setVisible(true);
-
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		int angle;
 		int speed;
 		int time;
