@@ -2,7 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.FlowLayout;
-
+import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,31 +37,25 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		setLayout(new FlowLayout());
 		//FIXME bad layout, use border layout
 		
-		button1 = new JButton("Type  1");
+		button1 = new JButton("Type 1");
 		button1.addActionListener(this);
-		this.add(button1);
 		
-		button2 = new JButton("Type  2");
+		button2 = new JButton("Type 2");
 		button2.addActionListener(this);
-		this.add(button2);
 		
-		button3 = new JButton("Type  3");
+		button3 = new JButton("Type 3");
 		button3.addActionListener(this);
-		this.add(button3);
 		
-		button4 = new JButton("Type  4");
+		button4 = new JButton("Type 4");
 		button4.addActionListener(this);
-		this.add(button4);
 		
-		button5 = new JButton("Type  5");
+		button5 = new JButton("Type 5");
 		button5.addActionListener(this);
-		this.add(button5);
 		
 		angleLabel = new JLabel("Angle: ");
 		speedLabel = new JLabel("Speed: ");
 		timeLabel = new JLabel("Time: ");
 		colorLabel = new JLabel("Color(blue, green, red): ");
-		note = new JLabel("Click the screen to see the exploding.");
 		
 		add(angleLabel);
 		angleSlider = new JSlider(1, 80, 45);
@@ -78,24 +72,29 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 		timeSlider.addChangeListener(this);
 		add(timeSlider);
 		
-		colorField = new JTextField(10);
+		colorField = new JTextField(7);
 		colorField.setEditable(true);
 		colorField.setText("");
 		colorField.addActionListener(this);
 		this.add(colorLabel);
 		this.add(colorField);
 		
-		this.add(note);
-		this.pack();
+		this.add(button1);
+		this.add(button2);
+		this.add(button3);
+		this.add(button4);
+		this.add(button5);
 	
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FireWork x = new FireWork();
-		x.setSize(600, 600);
+		x.setTitle("firework");
+		x.setSize(830, 150);
 		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		x.setVisible(true);
+
 
 	}
 
