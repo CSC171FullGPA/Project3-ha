@@ -80,7 +80,6 @@ public class Type_1 extends JComponent implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		System.out.println("yo");
 		Graphics g = getGraphics();
 		int w = getWidth();
