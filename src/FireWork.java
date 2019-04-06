@@ -1,3 +1,12 @@
+/*
+ * Name: Xinyi Chen, Shengyuan Huang, Yize Jin 
+ * NetID: xchen92, shuang48, yjin25
+ * project2
+ * LAB MW 18:15-19:30 (Xinyi) MW 1650-1805(Shengyuan) MW 1650-1805(Yize)
+ * Xinyi Chen and Shengyuan Huang, and Yize Jin worked together on this assignment.
+ */
+ 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
@@ -92,7 +101,7 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	public static void main(String[] args) {
 		FireWork x = new FireWork();
 		x.setTitle("firework");
-		x.setSize(750, 150);
+		x.setSize(810, 150);
 		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		x.setVisible(true);
 
