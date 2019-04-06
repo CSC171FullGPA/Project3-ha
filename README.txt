@@ -13,5 +13,6 @@ Our project creates one primary class, namely FireWork, which is in charge of cr
 Extra credits are met on:
 1 Support firing a two projectiles towards each other£¨Type_1)
 2 Support the first explosion of some fireworks breaks the projectile into several smaller pieces, each of which shoot off in some direction and then explode separately. (Tpye_4 and 5)
+3 used special signs for the explosion(*)(Type_3)
 
 All of codes are in the src folder.
