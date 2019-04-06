@@ -36,7 +36,6 @@ public class FireWork extends JFrame implements ActionListener,ChangeListener {
 	
 	public FireWork() {
 		setLayout(new FlowLayout());
-		//FIXME bad layout, use border layout
 		
 		button1 = new JButton("Type 1");
 		button1.addActionListener(this);
